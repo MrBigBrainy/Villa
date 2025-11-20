@@ -14,7 +14,7 @@ function Navigation() {
           <Link to="/projects" className="text-yellow-950 text-[12px] lg:text-[20px]  text-3xl font-semibold cursor-pointer">Projects</Link>
           <Link to="/reservation" className="text-yellow-950 text-[12px] lg:text-[20px] text-3xl font-semibold cursor-pointer">Reservation</Link>
         </ul>
-          <Link to="/auth" className="text-yellow-950 text-[12px] lg:text-[20px] text-3xl font-semibold cursor-pointer">Login</Link>
+          <Link to="/register" className="text-yellow-950 text-[12px] lg:text-[20px] text-3xl font-semibold cursor-pointer">Login</Link>
     </motion.nav>
   );
 }

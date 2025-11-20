@@ -15,18 +15,15 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { authRegisterSchema } from "./authRegisterSchema";
 import { toast } from "sonner"; 
 import { CircleX } from "lucide-react";
-
-
-// 🔥 import Firebase stuff
-import { auth, db } from "@/firebase/firebase"
+import bgVillaCard from "../Projects/svg.png"
+import { auth } from "@/firebase/firebase"
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { doc, setDoc, serverTimestamp } from "firebase/firestore";
+import { Link } from "react-router";
+import { motion } from "motion/react";
 
-type RegisterProp = {
-  setActiveTab: (value: string) => void
-}
 
-function Register({ setActiveTab }: RegisterProp) {
+
+function Register() {
   const {
     register,
     handleSubmit,
@@ -49,27 +46,19 @@ function Register({ setActiveTab }: RegisterProp) {
     toast.promise(
       (async () => {
         // 1) สร้าง user ใน Firebase Auth
-        const userCredential = await createUserWithEmailAndPassword(
+        await createUserWithEmailAndPassword(
           auth,
           email,
           password
         );
 
-        const user = userCredential.user;
 
-        // 2) เก็บข้อมูลเพิ่มใน Firestore
-        await setDoc(doc(db, "users", user.uid), {
-          email,
-          role: secretKey === "YOUR_ADMIN_SECRET" ? "admin" : "user",
-          createdAt: serverTimestamp(),
-          ...rest,       // ถ้ามี field อื่น เช่น name ฯลฯ
-        });
+        
       })(),
       {
         loading: "กำลังสมัครสมาชิก...",
         success: () => {
           reset();
-          setActiveTab("Log In");
           return "สมัครสมาชิกสำเร็จ";
         },
         error: (err: unknown) => {
@@ -96,8 +85,9 @@ function Register({ setActiveTab }: RegisterProp) {
     setLoading(false);
   };
 
-  return (
-    <Card className="border-0 text-[30px] py-10 drop-shadow-xl bg-[#fffefc]">
+    return (
+       <motion.div initial={{ x: 100 }} animate={{ x: 0, transition: { duration: 0.3 }}}  className="w-screen h-screen flex justify-center bg-[length:auto_50%] bg-bottom bg-no-repeat items-center"  style={{ backgroundImage: `url(${bgVillaCard})` }}>
+    <Card className="border-0 text-[30px] py-10 drop-shadow-xl w-[80%] ">
       <CardHeader>
         <CardTitle className="text-center text-[20px] font-semibold text-amber-900">Register</CardTitle>
       </CardHeader>
@@ -134,7 +124,7 @@ function Register({ setActiveTab }: RegisterProp) {
         
           <Button
             type="submit"
-            className="cursor-pointer w-full text-white mt-4 py-5 bg-amber-900"
+            className="cursor-pointer w-full text-white mt-4 mb-0 py-5 bg-amber-900"
             disabled={loading}
           >
             {loading ? (
@@ -145,10 +135,15 @@ function Register({ setActiveTab }: RegisterProp) {
             ) : (
               "Register"
             )}
-          </Button>
+                  </Button>
+                  <div className="flex w-full justify-center">
+                      
+            <Link to="/login" className="text-amber-950 text-[14px] text-center mt-3">Already have an account</Link>
+                  </div>
         </form>
       </CardContent>
     </Card>
+        </motion.div>
   );
 }
 

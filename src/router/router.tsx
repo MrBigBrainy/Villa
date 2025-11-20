@@ -4,6 +4,8 @@ import Auth from "../Auth/Auth";
 import Project from "../Projects/Projects";
 import Reservation from "../Reservation/Reservation";
 import RootLayout from "../Layout/RootLayout";
+import Register from "@/Auth/Register";
+import { LogIn } from "lucide-react";
 
 export const router = createBrowserRouter([
   {
@@ -15,9 +17,14 @@ export const router = createBrowserRouter([
         element: <App />,
       },
       {
-    path: "/auth",
-    element: <Auth />,
-  },
+        path: "register",
+        element: <Register />,
+      },
+      {
+        path: "login",
+        element: <LogIn />,
+      },
+      
       {
         path: "projects",
         element: <Project />,
