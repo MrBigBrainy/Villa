@@ -1,4 +1,3 @@
-import { SwiperSlide } from "swiper/react";
 
 type VillaChangePictureCardProp = {
     image: string,
@@ -7,7 +6,7 @@ type VillaChangePictureCardProp = {
     alt: string
 }
 
-function VillaChangePictureCard({ image, heading, description, alt }: VillaChangePictureCardProp) {
+function VillaChangePictureCard({ image, alt }: VillaChangePictureCardProp) {
   return (
     <>
       <img

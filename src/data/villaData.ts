@@ -4,10 +4,7 @@ import villa3 from "/3.jpg"
 import villa4 from "/4.jpg"
 import villa5 from "/5.jpg"
 import villa6 from "/6.jpg"
-import villa7 from "/7.jpg"
-import villa8 from "/8.jpg"
-import villa9 from "/9.jpg"
-import villa10 from "/10.jpg"
+
 
 export const villaData = [
     {

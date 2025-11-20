@@ -20,10 +20,11 @@ import { auth } from "@/firebase/firebase"
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Link } from "react-router";
 import { motion } from "motion/react";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router";
 
 
-function Register() {
+function Login() {
     const navigate = useNavigate();
   const {
     register,
@@ -38,7 +39,7 @@ function Register() {
 
   const [loading, setLoading] = useState(false);
 
-  const onRegister: SubmitHandler<AuthRegisterType> = async (data) => {
+  const onLogin: SubmitHandler<AuthRegisterType> = async (data) => {
     setLoading(true);
 
     const { email, password } = data;
@@ -47,26 +48,28 @@ function Register() {
     toast.promise(
         (async () => {
         // 1) สร้าง user ใน Firebase Auth
-        await createUserWithEmailAndPassword(
-          auth,
-          email,
-          password
-        );
+        const userCred = await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+
+            console.log("Logged in as:", userCred.user);
+            navigate("/")
 
 
         
       })(),
       {
-        loading: "Registering...",
+        loading: "Logging In...",
         success: () => {
-            reset();
-            navigate("/login")
-          return "Register successful";
+          reset();
+          return "Logged In";
         },
         error: (err: unknown) => {
           console.error(err);
 
-          let msg = "Error from the server";
+          let msg = "Error from Server";
 
           // ลองอ่าน error message แบบง่ายๆ
           if (typeof err === "object" && err !== null && "message" in err) {
@@ -91,10 +94,10 @@ function Register() {
         <motion.div initial={{ x: 100 }} animate={{ x: 0, transition: { duration: 0.3 } }} className="w-screen h-screen flex justify-center bg-[length:auto_50%] bg-bottom bg-no-repeat items-center" style={{ backgroundImage: `url(${bgVillaCard})` }}>
     <Card className="border-0 text-[30px] py-10 drop-shadow-xl w-[80%] ">
       <CardHeader>
-        <CardTitle className="text-center text-[20px] font-semibold text-amber-900">Register</CardTitle>
+        <CardTitle className="text-center text-[20px] font-semibold text-amber-900">Log In</CardTitle>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleSubmit(onRegister)} className="space-y-4">
+        <form onSubmit={handleSubmit(onLogin)} className="space-y-4">
           {errors.root?.message && (
             <div className="flex justify-center items-center text-red-500 text-[12px]">
               <CircleX className="w-3 h-3" />
@@ -135,12 +138,12 @@ function Register() {
                 <p>Loading...</p>
               </div>
             ) : (
-              "Register"
+              "Log In"
             )}
                   </Button>
                   <div className="flex w-full justify-center">
                       
-            <Link to="/login" className="text-amber-950 text-[14px] text-center mt-3">Already have an account</Link>
+            <Link to="/register" className="text-amber-950 text-[14px] text-center mt-3">Create new account</Link>
                   </div>
         </form>
       </CardContent>
@@ -149,4 +152,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default Login;
