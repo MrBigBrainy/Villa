@@ -21,8 +21,15 @@ transform: translateY(-50%)
 }
 .swiper-button-next::after,
 .swiper-button-prev::after{
-  font-size: 18px !important;
- 
+  font-size: 25px !important;
+}
+
+.swiper-button-next::after {
+  content: '›';
+}
+
+.swiper-button-prev::after{
+  content: '‹';
 }
 /* 640px and above (sm breakpoint) */
 @media (min-width: 640px) {

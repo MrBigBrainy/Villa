@@ -13,7 +13,7 @@ function VillaChangePictureCard({ image, heading, description, alt }: VillaChang
       <img
         src={image}
         alt={alt}
-        className="max-h-[210px] w-full object-cover max-w-[420px]  sm:max-h-[292px] md:max-h-[335px] sm:max-w-[480px]  md:max-w-[560px] xl:max-w-[800px] lg:max-w-[650px] lg:max-h-[365px]  mx-auto rounded-t-2xl "
+        className="max-h-[300px] w-full object-cover max-w-[420px] h-[270px] md:max-h-[335px] sm:max-w-[480px]  md:max-w-[560px] xl:max-w-[1000px] lg:max-w-[650px] lg:max-h-[500px]  mx-auto rounded-2xl "
       />
       {/* <div className=" py-3 px-5 rounded-b-2xl  max-w-[420px] sm:max-w-[480px]  md:max-w-[560px] lg:max-w-[650px] xl:max-w-[800px] mx-auto">
         <h4 className="font-semibold  text-[20px] md:text-[22px] xl:text-[25px]">

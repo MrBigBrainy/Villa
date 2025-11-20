@@ -1,7 +1,7 @@
 import App from "../Home/App";
 import { createBrowserRouter } from "react-router";
 import Auth from "../Auth/Auth";
-import Project from "../Projects/Project";
+import Project from "../Projects/Projects";
 import Reservation from "../Reservation/Reservation";
 
 
