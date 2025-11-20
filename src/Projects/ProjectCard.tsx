@@ -27,7 +27,7 @@ type ProjectCardProp = {
 
 }
 
-function ProjectCard({ heading, alt, image, description, bedRoom, bathRoom, area }: ProjectCardProp) {
+function ProjectCard({ heading, alt, image, bedRoom, bathRoom, area }: ProjectCardProp) {
   const projectCardRef = useRef(null);
    const isInView = useInView(projectCardRef, { amount: 0.8, once: true });
   return (
