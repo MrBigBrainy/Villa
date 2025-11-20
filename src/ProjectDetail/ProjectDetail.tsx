@@ -8,7 +8,7 @@ import { motion } from "motion/react";
 
 function ProjectDetail() {
   const { projectName } = useParams();
-  const [villa, setVilla] = useState(null);
+  const [villa, setVilla] = useState<any>(null);
 
   useEffect(() => {
     if (!projectName) return;
