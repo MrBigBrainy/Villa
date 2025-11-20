@@ -4,12 +4,14 @@ import { Outlet } from "react-router"
 import Register from "./Register";
 import { Toaster } from "sonner";
 import { useState } from "react";
+import bgVillaCard from "../Projects/svg.png"
+import {motion} from "motion/react"
 
 
 function Auth() {
-  const [activeTab, setActiveTab] = useState("Log In");
+  const [activeTab, setActiveTab] = useState("Register");
   return (
-    <div className="w-screen h-screen bg-gray-100 flex justify-center items-center">
+    <motion.div initial={{ x: 100 }} animate={{ x: 0, transition: { duration: 0.3 }}}  className="w-screen h-screen flex justify-center bg-[length:auto_50%] bg-bottom bg-no-repeat items-center"  style={{ backgroundImage: `url(${bgVillaCard})` }}>
       <Toaster  position="bottom-right" /> 
        <Tabs className="w-[400px] flex items-center"  value={activeTab} onValueChange={setActiveTab} >
         <TabsList className=" mb-5">
@@ -19,12 +21,12 @@ function Auth() {
         <TabsContent value="Log In">
           {/* <Login/> */}
         </TabsContent>
-        <TabsContent value="Register">
+        <TabsContent value="Register" className="w-[80%]">
           <Register setActiveTab={setActiveTab} />
         </TabsContent>
       </Tabs>
       <Outlet/>
-    </div>
+    </motion.div>
   )
 }
 

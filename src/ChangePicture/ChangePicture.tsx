@@ -10,7 +10,7 @@ import { villaData } from "@/data/villaData";
 function ChangePicture() {
   
   return (
-    <>
+    <motion.div initial={{x: 100}} animate={{x:0, transition: {type: "tween", duration: 0.3}}}>
       <Swiper
         pagination={{
           dynamicBullets: true,
@@ -28,7 +28,7 @@ function ChangePicture() {
           </SwiperSlide>
         ))}
       </Swiper>
-    </>
+    </motion.div>
   );
 }
 
