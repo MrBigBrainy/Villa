@@ -10,7 +10,7 @@ export const villaData = [
     {
         heading: "Zenithy",
         description:
-            "คลายกล้ามเนื้อ ลดปวด ลดอักเสบแบบเน้นจุด สามารถลงลึกได้ถึง 3-5 ซม. มั่นใจว่าลงลึกถึงต้นตอจุดปวด",
+            "The Best Place Villa in the world, you can live as your home. With a lot of furniture and scar and ghost, you can excited every night that is is today that I will die, so don't worry about it it make you feel like you are living in the horror movie.",
         image: villa2,
         alt: "ultrasound",
         bedRoom: 2,

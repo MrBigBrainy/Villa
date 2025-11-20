@@ -30,7 +30,7 @@ function ProjectFooter({heading, bedRoom, bathRoom, area}: ProjectFooterProp) {
                     <p className="text-[12px] text-neutral-400">{area} SQ FT </p>
                 </div>
             </div>
-                <Link to="/" className="mb-2 p-1 w-full text-[12px] bg-[#8D6238] text-white rounded-sm px-5 font-medium">More Details</Link>
+                <Link to={`/project/${heading}`} className="mb-2 p-1 w-full text-[12px] bg-[#8D6238] text-white rounded-sm px-5 font-medium">More Details</Link>
         </div>
     )
 }

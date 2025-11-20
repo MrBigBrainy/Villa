@@ -5,6 +5,7 @@ import Reservation from "../Reservation/Reservation";
 import RootLayout from "../Layout/RootLayout";
 import Register from "@/Auth/Register";
 import Login from "@/Auth/Login";
+import ProjectDetail from "@/ProjectDetail/ProjectDetail";
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
       {
         path: "projects",
         element: <Project />,
+      },
+       {
+        path: "project/:projectName",
+        element: <ProjectDetail />,
       },
       {
         path: "reservation",

@@ -17,7 +17,6 @@ import { toast } from "sonner";
 import { CircleX } from "lucide-react";
 import bgVillaCard from "../Projects/svg.png"
 import { auth } from "@/firebase/firebase"
-import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Link } from "react-router";
 import { motion } from "motion/react";
 import { signInWithEmailAndPassword } from "firebase/auth";
